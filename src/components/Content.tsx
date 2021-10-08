@@ -3,10 +3,14 @@ import { useState, useEffect } from "react";
 import '../styles/movie-card.scss'
 
 interface Movie {
-  title: string;
-  poster: string;
-  rating: string;
-  runtime: string;
+  imdbID: string;
+  Title: string;
+  Poster: string;
+  Ratings: Array<{
+    Source: string;
+    Value: string;
+  }>;
+  Runtime: string;
 }
 
 export function Content() {
@@ -22,8 +26,8 @@ export function Content() {
     <section className="content">
       <h1>Categoria</h1>
       <ul>
-        {movie.map(film => {
-          return <MovieCard key={film.title} movie={film} />
+        {movie.map(movie => {
+          return <MovieCard key={movie.imdbID} />
         })}
       </ul>
     </section>
